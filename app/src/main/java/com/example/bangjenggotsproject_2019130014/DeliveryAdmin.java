@@ -29,7 +29,7 @@ public class DeliveryAdmin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delivery_admin);
-        recycle_menu = findViewById(R.id.recycle_menu_recomen);
+        recycle_menu = findViewById(R.id.recycle_delivery);
 
         initApi();
         getAllDelivery();
@@ -40,7 +40,7 @@ public class DeliveryAdmin extends AppCompatActivity {
     }
 
     private void getAllDelivery() {
-        Call<ModelDelivery> callback = apiInterfaceDelivery.alldataddelivery();
+        Call<ModelDelivery> callback = apiInterfaceDelivery.alldatadelivery();
         callback.enqueue(new Callback<ModelDelivery>() {
             @Override
             public void onResponse(Call<ModelDelivery> call, Response<ModelDelivery> response) {

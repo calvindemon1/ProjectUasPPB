@@ -26,7 +26,7 @@ public class AdapterDelivery extends RecyclerView.Adapter<AdapterDelivery.ViewHo
 
     @NonNull
     @Override
-    public AdapterDelivery.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.list_delivery, null);
         return new ViewHolder(view);
     }

@@ -13,5 +13,5 @@ public interface ApiInterfaceDelivery {
     Call<ModelDelivery> delivery(@Body ModelDelivery modelDelivery);
 
     @GET("getAllDataDelivery.php")
-    Call<ModelDelivery> alldataddelivery();
+    Call<ModelDelivery> alldatadelivery();
 }

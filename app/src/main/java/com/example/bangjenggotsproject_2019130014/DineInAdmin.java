@@ -30,7 +30,7 @@ public class DineInAdmin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dine_in_admin);
 
-        recycle_menu = findViewById(R.id.recycle_menu_recomen);
+        recycle_menu = findViewById(R.id.recycle_dine);
 
         initApi();
         getAllDine();
