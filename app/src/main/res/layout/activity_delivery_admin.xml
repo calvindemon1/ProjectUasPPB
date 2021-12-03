@@ -14,7 +14,6 @@
         app:cardCornerRadius="10.00dp"
         android:layout_centerVertical="true">
 
-
     </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

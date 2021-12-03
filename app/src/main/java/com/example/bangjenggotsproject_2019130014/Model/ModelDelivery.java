@@ -2,7 +2,12 @@ package com.example.bangjenggotsproject_2019130014.Model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class ModelDelivery {
+    @SerializedName("result")
+    private List<ModelDelivery> result;
+
     @SerializedName("id_delivery")
     private String id_delivery;
 
@@ -23,6 +28,14 @@ public class ModelDelivery {
 
     @SerializedName("status")
     private String status;
+
+    public List<ModelDelivery> getResult() {
+        return result;
+    }
+
+    public void setResult(List<ModelDelivery> result) {
+        this.result = result;
+    }
 
     public String getNama_pemesan() {
         return nama_pemesan;
