@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -50,6 +51,7 @@ public class AdapterDine extends RecyclerView.Adapter<AdapterDine.ViewHolder> {
         private TextView tanggal_dine;
         private TextView waktu_dine;
         private TextView status;
+        private Button btndine;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             id_dine = itemView.findViewById(R.id.id_dine);
@@ -57,6 +59,14 @@ public class AdapterDine extends RecyclerView.Adapter<AdapterDine.ViewHolder> {
             tanggal_dine = itemView.findViewById(R.id.tanggal_dine);
             waktu_dine = itemView.findViewById(R.id.waktu_dine);
             status = itemView.findViewById(R.id.status_dine);
+            btndine = itemView.findViewById(R.id.btndine);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                }
+            });
         }
     }
 }

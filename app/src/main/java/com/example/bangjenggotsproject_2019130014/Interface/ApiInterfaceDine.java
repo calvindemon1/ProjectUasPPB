@@ -6,6 +6,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 
 public interface ApiInterfaceDine {
     @POST("inputDine.php")
@@ -13,4 +14,7 @@ public interface ApiInterfaceDine {
 
     @GET("getAllDataDine.php")
     Call<ModelDine> alldatadine();
+
+    @PUT("updateDine.php")
+    Call<ModelDine> updatedine(@Body ModelDine modelDine);
 }

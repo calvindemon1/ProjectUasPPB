@@ -90,12 +90,12 @@ public class Login extends AppCompatActivity {
                         progressDialog.dismiss();
 
                         if(response.body().getResult().getStatus()==1){
-                            Intent login = new Intent(getBaseContext(), MainMenuAdmin.class);
-                            startActivity(login);
+                            Intent login1 = new Intent(getBaseContext(), MainMenuAdmin.class);
+                            startActivity(login1);
                             finish();
                         }else{
-                            Intent login = new Intent(getBaseContext(), MainMenu.class);
-                            startActivity(login);
+                            Intent login2 = new Intent(getBaseContext(), MainMenu.class);
+                            startActivity(login2);
                             finish();
                         }
                     } else {
