@@ -14,6 +14,7 @@ import com.example.bangjenggotsproject_2019130014.Interface.ApiInterfaceDelivery
 import com.example.bangjenggotsproject_2019130014.Interface.ApiInterfaceMakanan;
 import com.example.bangjenggotsproject_2019130014.Model.ModelDelivery;
 import com.example.bangjenggotsproject_2019130014.Model.ModelMakanan;
+import com.example.bangjenggotsproject_2019130014.Model.ResultDelivery;
 
 import java.util.List;
 
@@ -40,17 +41,17 @@ public class DeliveryAdmin extends AppCompatActivity {
     }
 
     private void getAllDelivery() {
-        Call<ModelDelivery> callback = apiInterfaceDelivery.alldatadelivery();
-        callback.enqueue(new Callback<ModelDelivery>() {
+        Call<ResultDelivery> callback = apiInterfaceDelivery.alldatadelivery();
+        callback.enqueue(new Callback<ResultDelivery>() {
             @Override
-            public void onResponse(Call<ModelDelivery> call, Response<ModelDelivery> response) {
+            public void onResponse(Call<ResultDelivery> call, Response<ResultDelivery> response) {
                 if (response.isSuccessful()) {
                     if (response.code() == 200 && response.body() != null) {
                         if (!response.body().getResult().isEmpty()) {
                             List<ModelDelivery> list_delivery = response.body().getResult();
                             recycle_menu.setHasFixedSize(false);
                             recycle_menu.setLayoutManager(new LinearLayoutManager(getBaseContext(), LinearLayoutManager.VERTICAL, false));
-                            AdapterDelivery adapterDelivery = new AdapterDelivery(getBaseContext(), list_delivery);
+                            AdapterDelivery adapterDelivery = new AdapterDelivery(getBaseContext(), list_delivery, apiInterfaceDelivery);
                             recycle_menu.setAdapter(adapterDelivery);
                             recycle_menu.setNestedScrollingEnabled(true);
                         } else {
@@ -65,7 +66,7 @@ public class DeliveryAdmin extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ModelDelivery> call, Throwable t) {
+            public void onFailure(Call<ResultDelivery> call, Throwable t) {
                 message(t.getMessage());
             }
         });

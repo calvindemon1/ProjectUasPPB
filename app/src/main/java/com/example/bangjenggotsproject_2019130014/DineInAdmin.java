@@ -15,6 +15,7 @@ import com.example.bangjenggotsproject_2019130014.Interface.ApiInterfaceDine;
 import com.example.bangjenggotsproject_2019130014.Interface.ApiInterfaceMakanan;
 import com.example.bangjenggotsproject_2019130014.Model.ModelDine;
 import com.example.bangjenggotsproject_2019130014.Model.ModelMakanan;
+import com.example.bangjenggotsproject_2019130014.Model.ResultDine;
 
 import java.util.List;
 
@@ -42,17 +43,17 @@ public class DineInAdmin extends AppCompatActivity {
     }
 
     private void getAllDine() {
-        Call<ModelDine> callback = apiInterfaceDine.alldatadine();
-        callback.enqueue(new Callback<ModelDine>() {
+        Call<ResultDine> callback = apiInterfaceDine.alldatadine();
+        callback.enqueue(new Callback<ResultDine>() {
             @Override
-            public void onResponse(Call<ModelDine> call, Response<ModelDine> response) {
+            public void onResponse(Call<ResultDine> call, Response<ResultDine> response) {
                 if (response.isSuccessful()) {
                     if (response.code() == 200 && response.body() != null) {
                         if (!response.body().getResult().isEmpty()) {
                             List<ModelDine> list_dine = response.body().getResult();
                             recycle_menu.setHasFixedSize(false);
                             recycle_menu.setLayoutManager(new LinearLayoutManager(getBaseContext(), LinearLayoutManager.VERTICAL, false));
-                            AdapterDine adapterDine = new AdapterDine(getBaseContext(), list_dine);
+                            AdapterDine adapterDine = new AdapterDine(getBaseContext(), list_dine, apiInterfaceDine);
                             recycle_menu.setAdapter(adapterDine);
                             recycle_menu.setNestedScrollingEnabled(true);
                         } else {
@@ -67,7 +68,7 @@ public class DineInAdmin extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ModelDine> call, Throwable t) {
+            public void onFailure(Call<ResultDine> call, Throwable t) {
                 message(t.getMessage());
             }
         });

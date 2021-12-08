@@ -5,11 +5,8 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class ModelDelivery {
-    @SerializedName("result")
-    private List<ModelDelivery> result;
-
     @SerializedName("id_delivery")
-    private String id_delivery;
+    private Integer id_delivery;
 
     @SerializedName("nama_pemesan")
     private String nama_pemesan;
@@ -28,14 +25,6 @@ public class ModelDelivery {
 
     @SerializedName("status")
     private String status;
-
-    public List<ModelDelivery> getResult() {
-        return result;
-    }
-
-    public void setResult(List<ModelDelivery> result) {
-        this.result = result;
-    }
 
     public String getNama_pemesan() {
         return nama_pemesan;
@@ -77,11 +66,11 @@ public class ModelDelivery {
         this.waktu_pesan = waktu_pesan;
     }
 
-    public String getId_delivery() {
+    public Integer getId_delivery() {
         return id_delivery;
     }
 
-    public void setId_delivery(String id_delivery) {
+    public void setId_delivery(Integer id_delivery) {
         this.id_delivery = id_delivery;
     }
 

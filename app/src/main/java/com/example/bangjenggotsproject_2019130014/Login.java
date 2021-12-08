@@ -42,12 +42,18 @@ public class Login extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences(my_shared_preferences, Context.MODE_PRIVATE);
 
-        if(sharedPreferences.getString("key", null) != null){
-            Intent intent = new Intent(Login.this, MainMenu.class);
-            startActivity(intent);
-            finish();
-        }
+        if(sharedPreferences.getInt("key", 0) != 0){
+            if(sharedPreferences.getInt("key", 0) == 1){
+                Intent intent = new Intent(Login.this, MainMenuAdmin.class);
+                startActivity(intent);
+                finish();
+            }else{
+                Intent intent = new Intent(Login.this, MainMenu.class);
+                startActivity(intent);
+                finish();
+            }
 
+        }
 
         login.setOnClickListener(view -> loginApi());
 
@@ -84,7 +90,7 @@ public class Login extends AppCompatActivity {
                     if (response.code() == 200 && response.body() != null) {
 
                         SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString("key", response.body().getResult().getId_user());
+                        editor.putInt("key", response.body().getResult().getStatus());
                         editor.apply();
 
                         progressDialog.dismiss();

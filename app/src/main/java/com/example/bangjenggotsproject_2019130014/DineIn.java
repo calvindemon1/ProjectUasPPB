@@ -113,6 +113,7 @@ public class DineIn extends AppCompatActivity implements View.OnClickListener{
         model.setNama_reservasi(namadine.getText().toString());
         model.setTanggal_dine(txttanggaldine.getText().toString());
         model.setWaktu_dine(txtwaktudine.getText().toString());
+        model.setStatus("Belum diproses");
 
         Call<ModelDine> callback = apiInterfaceDine.dinein(model);
         callback.enqueue(new Callback<ModelDine>() {
