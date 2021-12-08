@@ -51,7 +51,7 @@ public class DineInAdmin extends AppCompatActivity {
                     if (response.code() == 200 && response.body() != null) {
                         if (!response.body().getResult().isEmpty()) {
                             List<ModelDine> list_dine = response.body().getResult();
-                            recycle_menu.setHasFixedSize(false);
+                            recycle_menu.setHasFixedSize(true);
                             recycle_menu.setLayoutManager(new LinearLayoutManager(getBaseContext(), LinearLayoutManager.VERTICAL, false));
                             AdapterDine adapterDine = new AdapterDine(getBaseContext(), list_dine, apiInterfaceDine);
                             recycle_menu.setAdapter(adapterDine);

@@ -117,7 +117,6 @@ public class Delivery extends AppCompatActivity implements View.OnClickListener 
         model.setPesanan(pesanan.getText().toString());
         model.setTanggal_pesan(txttanggaldelivery.getText().toString());
         model.setWaktu_pesan(txtwaktudelivery.getText().toString());
-        model.setStatus("Belum diproses");
 
         Call<ModelDelivery> callback = apiInterfaceDelivery.delivery(model);
         callback.enqueue(new Callback<ModelDelivery>() {

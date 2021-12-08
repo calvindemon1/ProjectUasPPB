@@ -34,62 +34,6 @@ public class AdapterDine extends RecyclerView.Adapter<AdapterDine.ViewHolder> {
         this.apiInterfaceDine = apiInterfaceDine;
     }
 
-    private void updateDataDine(AdapterDine.ViewHolder holder, final int i){
-        ModelDine md = new ModelDine();
-        md.setId_dine(Integer.parseInt(holder.id_dine.getText().toString()));
-        md.setNama_reservasi(holder.nama_reservasi.getText().toString());
-        md.setTanggal_dine(holder.tanggal_dine.getText().toString());
-        md.setWaktu_dine(holder.waktu_dine.getText().toString());
-        md.setStatus("Diterima");
-        Call<ModelDine> callback = apiInterfaceDine.updatedine(md);
-        callback.enqueue(new Callback<ModelDine>() {
-            @Override
-            public void onResponse(Call<ModelDine> call, Response<ModelDine> response) {
-                if (response.isSuccessful()) {
-                    if(response.code() == 200 && response.body() != null){
-                        list_dine.remove(i);
-                        notifyItemChanged(i);
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ModelDine> call, Throwable t) {
-                message(t.getMessage());
-            }
-        });
-    }
-
-    private void updateDataDineTolak(AdapterDine.ViewHolder holder, final int i){
-        ModelDine md = new ModelDine();
-        md.setId_dine(Integer.parseInt(holder.id_dine.getText().toString()));
-        md.setNama_reservasi(holder.nama_reservasi.getText().toString());
-        md.setTanggal_dine(holder.tanggal_dine.getText().toString());
-        md.setWaktu_dine(holder.waktu_dine.getText().toString());
-        md.setStatus("Ditolak");
-        Call<ModelDine> callback = apiInterfaceDine.updatedine(md);
-        callback.enqueue(new Callback<ModelDine>() {
-            @Override
-            public void onResponse(Call<ModelDine> call, Response<ModelDine> response) {
-                if (response.isSuccessful()) {
-                    if(response.code() == 200 && response.body() != null){
-                        list_dine.remove(i);
-                        notifyItemChanged(i);
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ModelDine> call, Throwable t) {
-                message(t.getMessage());
-            }
-        });
-    }
-
-    private void message(final String message) {
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
-    }
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -108,14 +52,26 @@ public class AdapterDine extends RecyclerView.Adapter<AdapterDine.ViewHolder> {
         holder.btnterima.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                updateDataDine(holder, position);
+                ModelDine md = new ModelDine();
+                md.setId_dine(Integer.parseInt(holder.id_dine.getText().toString()));
+                md.setNama_reservasi(holder.nama_reservasi.getText().toString());
+                md.setTanggal_dine(holder.tanggal_dine.getText().toString());
+                md.setWaktu_dine(holder.waktu_dine.getText().toString());
+                md.setStatus("Diterima");
+                updateDataDine(md, position);
             }
         });
 
         holder.btntolak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                updateDataDineTolak(holder,position);
+                ModelDine md = new ModelDine();
+                md.setId_dine(Integer.parseInt(holder.id_dine.getText().toString()));
+                md.setNama_reservasi(holder.nama_reservasi.getText().toString());
+                md.setTanggal_dine(holder.tanggal_dine.getText().toString());
+                md.setWaktu_dine(holder.waktu_dine.getText().toString());
+                md.setStatus("Ditolak");
+                updateDataDineTolak(md,position);
             }
         });
     }
@@ -143,5 +99,49 @@ public class AdapterDine extends RecyclerView.Adapter<AdapterDine.ViewHolder> {
             btnterima = itemView.findViewById(R.id.btnterima);
             btntolak = itemView.findViewById(R.id.btntolak);
         }
+    }
+
+    private void updateDataDine(ModelDine md, final int i){
+        Call<ModelDine> callback = apiInterfaceDine.updatedine(md);
+        callback.enqueue(new Callback<ModelDine>() {
+            @Override
+            public void onResponse(Call<ModelDine> call, Response<ModelDine> response) {
+                if (response.isSuccessful()) {
+                    if(response.code() == 200 && response.body() != null){
+                        list_dine.remove(i);
+                        notifyItemChanged(i);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ModelDine> call, Throwable t) {
+                message(t.getMessage());
+            }
+        });
+    }
+
+    private void updateDataDineTolak(ModelDine md, final int i){
+        Call<ModelDine> callback = apiInterfaceDine.updatedine(md);
+        callback.enqueue(new Callback<ModelDine>() {
+            @Override
+            public void onResponse(Call<ModelDine> call, Response<ModelDine> response) {
+                if (response.isSuccessful()) {
+                    if(response.code() == 200 && response.body() != null){
+                        list_dine.remove(i);
+                        notifyItemChanged(i);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ModelDine> call, Throwable t) {
+                message(t.getMessage());
+            }
+        });
+    }
+
+    private void message(final String message) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
 }

@@ -34,66 +34,6 @@ public class AdapterDelivery extends RecyclerView.Adapter<AdapterDelivery.ViewHo
         this.apiInterfaceDelivery = apiInterfaceDelivery;
     }
 
-    private void updateDataDelivery(AdapterDelivery.ViewHolder holder, final int i){
-        ModelDelivery md = new ModelDelivery();
-        md.setId_delivery(Integer.parseInt(holder.id_delivery.getText().toString()));
-        md.setNama_pemesan(holder.nama_pemesan.getText().toString());
-        md.setAlamat(holder.alamat.getText().toString());
-        md.setPesanan(holder.pesanan.getText().toString());
-        md.setTanggal_pesan(holder.tanggal_pesan.getText().toString());
-        md.setWaktu_pesan(holder.waktu_pesan.getText().toString());
-        md.setStatus("Diterima");
-        Call<ModelDelivery> callback = apiInterfaceDelivery.updatedelivery(md);
-        callback.enqueue(new Callback<ModelDelivery>() {
-            @Override
-            public void onResponse(Call<ModelDelivery> call, Response<ModelDelivery> response) {
-                if (response.isSuccessful()) {
-                    if(response.code() == 200 && response.body() != null){
-                        list_delivery.remove(i);
-                        notifyItemChanged(i);
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ModelDelivery> call, Throwable t) {
-                message(t.getMessage());
-            }
-        });
-    }
-
-    public void updateDeliveryTolak(AdapterDelivery.ViewHolder holder, final int i){
-        ModelDelivery md = new ModelDelivery();
-        md.setId_delivery(Integer.parseInt(holder.id_delivery.getText().toString()));
-        md.setNama_pemesan(holder.nama_pemesan.getText().toString());
-        md.setAlamat(holder.alamat.getText().toString());
-        md.setPesanan(holder.pesanan.getText().toString());
-        md.setTanggal_pesan(holder.tanggal_pesan.getText().toString());
-        md.setWaktu_pesan(holder.waktu_pesan.getText().toString());
-        md.setStatus("Ditolak");
-        Call<ModelDelivery> callback = apiInterfaceDelivery.updatedelivery(md);
-        callback.enqueue(new Callback<ModelDelivery>() {
-            @Override
-            public void onResponse(Call<ModelDelivery> call, Response<ModelDelivery> response) {
-                if (response.isSuccessful()) {
-                    if(response.code() == 200 && response.body() != null){
-                        list_delivery.remove(i);
-                        notifyItemChanged(i);
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ModelDelivery> call, Throwable t) {
-                message(t.getMessage());
-            }
-        });
-    }
-
-    private void message(final String message) {
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
-    }
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -114,14 +54,30 @@ public class AdapterDelivery extends RecyclerView.Adapter<AdapterDelivery.ViewHo
         holder.btnterimad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                updateDataDelivery(holder, position);
+                ModelDelivery md = new ModelDelivery();
+                md.setId_delivery(Integer.parseInt(holder.id_delivery.getText().toString()));
+                md.setNama_pemesan(holder.nama_pemesan.getText().toString());
+                md.setAlamat(holder.alamat.getText().toString());
+                md.setPesanan(holder.pesanan.getText().toString());
+                md.setTanggal_pesan(holder.tanggal_pesan.getText().toString());
+                md.setWaktu_pesan(holder.waktu_pesan.getText().toString());
+                md.setStatus("Diterima");
+                updateDataDelivery(md, position);
             }
         });
 
         holder.btntolakd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                updateDeliveryTolak(holder,position);
+                ModelDelivery md = new ModelDelivery();
+                md.setId_delivery(Integer.parseInt(holder.id_delivery.getText().toString()));
+                md.setNama_pemesan(holder.nama_pemesan.getText().toString());
+                md.setAlamat(holder.alamat.getText().toString());
+                md.setPesanan(holder.pesanan.getText().toString());
+                md.setTanggal_pesan(holder.tanggal_pesan.getText().toString());
+                md.setWaktu_pesan(holder.waktu_pesan.getText().toString());
+                md.setStatus("Ditolak");
+                updateDeliveryTolak(md,position);
             }
         });
     }
@@ -153,5 +109,49 @@ public class AdapterDelivery extends RecyclerView.Adapter<AdapterDelivery.ViewHo
             btnterimad = itemView.findViewById(R.id.btnterimad);
             btntolakd = itemView.findViewById(R.id.btntolakd);
         }
+    }
+
+    private void updateDataDelivery(ModelDelivery md, final int i){
+        Call<ModelDelivery> callback = apiInterfaceDelivery.updatedelivery(md);
+        callback.enqueue(new Callback<ModelDelivery>() {
+            @Override
+            public void onResponse(Call<ModelDelivery> call, Response<ModelDelivery> response) {
+                if (response.isSuccessful()) {
+                    if(response.code() == 200 && response.body() != null){
+                        list_delivery.remove(i);
+                        notifyItemChanged(i);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ModelDelivery> call, Throwable t) {
+                message(t.getMessage());
+            }
+        });
+    }
+
+    public void updateDeliveryTolak(ModelDelivery md, final int i){
+        Call<ModelDelivery> callback = apiInterfaceDelivery.updatedelivery(md);
+        callback.enqueue(new Callback<ModelDelivery>() {
+            @Override
+            public void onResponse(Call<ModelDelivery> call, Response<ModelDelivery> response) {
+                if (response.isSuccessful()) {
+                    if(response.code() == 200 && response.body() != null){
+                        list_delivery.remove(i);
+                        notifyItemChanged(i);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ModelDelivery> call, Throwable t) {
+                message(t.getMessage());
+            }
+        });
+    }
+
+    private void message(final String message) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
 }
