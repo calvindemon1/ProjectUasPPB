@@ -18,6 +18,12 @@
         android:theme="@style/Theme.BangJenggotsProject2019130014"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".DataDelivery"
+            android:exported="false" />
+        <activity
+            android:name=".Notification"
+            android:exported="false" />
+        <activity
             android:name=".DeliveryAdmin"
             android:exported="false" />
         <activity

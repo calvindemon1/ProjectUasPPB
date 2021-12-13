@@ -8,30 +8,41 @@
     tools:context=".HomeFragment"
     android:background="@drawable/vertical_bg">
 
+    <ImageView
+        android:id="@+id/notif1"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/ic_notification"
+        android:backgroundTint="@color/orange"
+        android:textSize="12sp"
+        app:backgroundTint="@null" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/_30sdp">
+
         <ViewFlipper
             android:id="@+id/flipper"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_margin="15dp"/>
+            android:layout_margin="15dp" />
 
         <LinearLayout
             android:id="@+id/menumain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginHorizontal="@dimen/_5sdp"
+            android:orientation="horizontal"
             android:weightSum="4">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/dinein"
@@ -42,101 +53,107 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed-light"
                     android:text="Dine-In"
                     android:textAlignment="center"
-                    android:textStyle="bold"
-                    android:fontFamily="sans-serif-condensed-light"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
-                    android:textColor="@color/white"/>
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <ImageView
                     android:id="@+id/delivery"
                     android:layout_width="@dimen/_70sdp"
                     android:layout_height="@dimen/_70sdp"
-                    android:textSize="12sp"
-                    app:backgroundTint="@null"
                     android:background="@drawable/ic_delivery"
-                    android:backgroundTint="@color/orange"/>
+                    android:backgroundTint="@color/orange"
+                    android:textSize="12sp"
+                    app:backgroundTint="@null" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed-light"
                     android:text="Delivery"
                     android:textAlignment="center"
-                    android:textStyle="bold"
-                    android:fontFamily="sans-serif-condensed-light"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
-                    android:textColor="@color/white"/>
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <ImageView
                     android:id="@+id/promo"
                     android:layout_width="@dimen/_70sdp"
                     android:layout_height="@dimen/_70sdp"
-                    android:textSize="12sp"
-                    app:backgroundTint="@null"
                     android:background="@drawable/ic_menu"
-                    android:backgroundTint="@color/orange"/>
+                    android:backgroundTint="@color/orange"
+                    android:textSize="12sp"
+                    app:backgroundTint="@null" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed-light"
                     android:text="Menu"
                     android:textAlignment="center"
-                    android:textStyle="bold"
-                    android:fontFamily="sans-serif-condensed-light"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
-                    android:textColor="@color/white"/>
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <ImageView
                     android:id="@+id/location"
                     android:layout_width="@dimen/_70sdp"
                     android:layout_height="@dimen/_70sdp"
-                    android:textSize="12sp"
-                    app:backgroundTint="@null"
                     android:background="@drawable/ic_location"
-                    android:backgroundTint="@color/orange"/>
+                    android:backgroundTint="@color/orange"
+                    android:textSize="12sp"
+                    app:backgroundTint="@null" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed-light"
                     android:text="Location"
                     android:textAlignment="center"
-                    android:textStyle="bold"
-                    android:fontFamily="sans-serif-condensed-light"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
-                    android:textColor="@color/white"/>
+                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Recommendation Menu"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginLeft="@dimen/_5sdp"
-            android:textColor="@color/white"/>
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Recommendation Menu"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycle_menu_recomen"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 

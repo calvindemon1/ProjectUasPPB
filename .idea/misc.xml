@@ -10,7 +10,9 @@
         <entry key="..\:/FOLDER LIKMI/Semester 5/BangJenggotsProject2019130014/app/src/main/res/drawable/ic_dine_admin.xml" value="0.290625" />
         <entry key="..\:/FOLDER LIKMI/Semester 5/BangJenggotsProject2019130014/app/src/main/res/drawable/ic_input_sewa.xml" value="0.290625" />
         <entry key="..\:/FOLDER LIKMI/Semester 5/BangJenggotsProject2019130014/app/src/main/res/drawable/ic_input_user.xml" value="0.290625" />
+        <entry key="..\:/FOLDER LIKMI/Semester 5/BangJenggotsProject2019130014/app/src/main/res/drawable/ic_notification.xml" value="0.290625" />
         <entry key="..\:/FOLDER LIKMI/Semester 5/BangJenggotsProject2019130014/app/src/main/res/drawable/roundborder.xml" value="0.290625" />
+        <entry key="..\:/FOLDER LIKMI/Semester 5/BangJenggotsProject2019130014/app/src/main/res/layout/activity_data_delivery.xml" value="0.24139492753623187" />
         <entry key="..\:/FOLDER LIKMI/Semester 5/BangJenggotsProject2019130014/app/src/main/res/layout/activity_delivery.xml" value="0.27447916666666666" />
         <entry key="..\:/FOLDER LIKMI/Semester 5/BangJenggotsProject2019130014/app/src/main/res/layout/activity_delivery_admin.xml" value="0.2604166666666667" />
         <entry key="..\:/FOLDER LIKMI/Semester 5/BangJenggotsProject2019130014/app/src/main/res/layout/activity_dine_in.xml" value="0.27447916666666666" />
@@ -21,6 +23,7 @@
         <entry key="..\:/FOLDER LIKMI/Semester 5/BangJenggotsProject2019130014/app/src/main/res/layout/activity_main_menu.xml" value="0.27447916666666666" />
         <entry key="..\:/FOLDER LIKMI/Semester 5/BangJenggotsProject2019130014/app/src/main/res/layout/activity_main_menu_admin.xml" value="0.19010416666666666" />
         <entry key="..\:/FOLDER LIKMI/Semester 5/BangJenggotsProject2019130014/app/src/main/res/layout/activity_menu.xml" value="0.27309782608695654" />
+        <entry key="..\:/FOLDER LIKMI/Semester 5/BangJenggotsProject2019130014/app/src/main/res/layout/activity_notification.xml" value="0.14375" />
         <entry key="..\:/FOLDER LIKMI/Semester 5/BangJenggotsProject2019130014/app/src/main/res/layout/activity_promo.xml" value="0.27447916666666666" />
         <entry key="..\:/FOLDER LIKMI/Semester 5/BangJenggotsProject2019130014/app/src/main/res/layout/activity_register.xml" value="0.27447916666666666" />
         <entry key="..\:/FOLDER LIKMI/Semester 5/BangJenggotsProject2019130014/app/src/main/res/layout/app_bar.xml" value="0.11550151975683891" />
@@ -35,6 +38,7 @@
         <entry key="..\:/FOLDER LIKMI/Semester 5/BangJenggotsProject2019130014/app/src/main/res/layout/fragment_input_user.xml" value="0.11550151975683891" />
         <entry key="..\:/FOLDER LIKMI/Semester 5/BangJenggotsProject2019130014/app/src/main/res/layout/fragment_input_user2.xml" value="0.27447916666666666" />
         <entry key="..\:/FOLDER LIKMI/Semester 5/BangJenggotsProject2019130014/app/src/main/res/layout/list_delivery.xml" value="0.26222826086956524" />
+        <entry key="..\:/FOLDER LIKMI/Semester 5/BangJenggotsProject2019130014/app/src/main/res/layout/list_dine_data.xml" value="0.24139492753623187" />
         <entry key="..\:/FOLDER LIKMI/Semester 5/BangJenggotsProject2019130014/app/src/main/res/layout/list_dine_in.xml" value="0.26222826086956524" />
         <entry key="..\:/FOLDER LIKMI/Semester 5/BangJenggotsProject2019130014/app/src/main/res/layout/list_item_top_recomend.xml" value="0.2" />
         <entry key="..\:/FOLDER LIKMI/Semester 5/BangJenggotsProject2019130014/app/src/main/res/layout/navbar.xml" value="0.176" />

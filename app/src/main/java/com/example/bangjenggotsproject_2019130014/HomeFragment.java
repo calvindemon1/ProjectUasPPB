@@ -33,6 +33,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private ImageView delivery;
     private ImageView promo;
     private ImageView location;
+    private ImageView notif1;
 
     ViewFlipper flipper;
     public HomeFragment() {
@@ -54,6 +55,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         delivery.setOnClickListener(this);
         promo.setOnClickListener(this);
         location.setOnClickListener(this);
+        notif1.setOnClickListener(this);
 
         recycle_menu_recomen = view.findViewById(R.id.recycle_menu_recomen);
 
@@ -141,5 +143,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         if(view == location){
             startActivity(new Intent(getActivity(),Location.class));
         }
+
+        if(view == notif1){
+            startActivity(new Intent(getActivity(),Notification.class));
+        }
+
     }
 }
