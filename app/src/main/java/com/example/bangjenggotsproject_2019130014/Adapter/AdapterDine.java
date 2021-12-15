@@ -36,7 +36,7 @@ public class AdapterDine extends RecyclerView.Adapter<AdapterDine.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.list_dine_data, null);
+        View view = LayoutInflater.from(context).inflate(R.layout.list_dine_in, null);
         return new ViewHolder(view);
     }
 

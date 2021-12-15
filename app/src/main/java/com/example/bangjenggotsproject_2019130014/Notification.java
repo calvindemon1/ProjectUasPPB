@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +28,8 @@ import retrofit2.Response;
 public class Notification extends AppCompatActivity {
     private RecyclerView recycle_menu;
     private ApiInterfaceDine apiInterfaceDine;
+    SharedPreferences sharedPreferences;
+    public static final String my_shared_preferences = "my_session";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,8 @@ public class Notification extends AppCompatActivity {
         recycle_menu = findViewById(R.id.recycle_datadine);
         Button btndelivery = findViewById(R.id.btndelivery);
 
+        sharedPreferences = getSharedPreferences(my_shared_preferences, Context.MODE_PRIVATE);
+
         btndelivery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,6 +48,9 @@ public class Notification extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        initApi();
+        getAllDataDine();
     }
 
     private void initApi() {
@@ -49,7 +58,9 @@ public class Notification extends AppCompatActivity {
     }
 
     private void getAllDataDine(){
-        Call<ResultDine> callback = apiInterfaceDine.alldatadine();
+        int iduser = sharedPreferences.getInt("iduser",0);
+
+        Call<ResultDine> callback = apiInterfaceDine.alldatadinebyid(iduser);
         callback.enqueue(new Callback<ResultDine>() {
             @Override
             public void onResponse(Call<ResultDine> call, Response<ResultDine> response) {
@@ -62,6 +73,7 @@ public class Notification extends AppCompatActivity {
                             AdapterDineData adapterDineData = new AdapterDineData(getBaseContext(), list_dine, apiInterfaceDine);
                             recycle_menu.setAdapter(adapterDineData);
                             recycle_menu.setNestedScrollingEnabled(true);
+                            adapterDineData.notifyDataSetChanged();
                         } else {
                             message("Data masih Kosong !");
                         }

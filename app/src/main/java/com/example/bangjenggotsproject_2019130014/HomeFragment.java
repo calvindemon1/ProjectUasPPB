@@ -50,6 +50,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         delivery = view.findViewById(R.id.delivery);
         promo = view.findViewById(R.id.promo);
         location = view.findViewById(R.id.location);
+        notif1 = view.findViewById(R.id.notif1);
 
         dinein.setOnClickListener(this);
         delivery.setOnClickListener(this);

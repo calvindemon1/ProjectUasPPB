@@ -6,7 +6,10 @@ import java.util.List;
 
 public class ModelDine {
     @SerializedName("id_dine")
-    private Integer id_dine;
+    private int id_dine;
+
+    @SerializedName("id_user")
+    private int id_user;
 
     @SerializedName("nama_reservasi")
     private String nama_reservasi;
@@ -20,12 +23,20 @@ public class ModelDine {
     @SerializedName("status")
     private String status;
 
-    public Integer getId_dine() {
+    public int getId_dine() {
         return id_dine;
     }
 
-    public void setId_dine(Integer id_dine) {
+    public void setId_dine(int id_dine) {
         this.id_dine = id_dine;
+    }
+
+    public int getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
     }
 
     public String getStatus() {

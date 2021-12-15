@@ -56,6 +56,7 @@ public class DineInAdmin extends AppCompatActivity {
                             AdapterDine adapterDine = new AdapterDine(getBaseContext(), list_dine, apiInterfaceDine);
                             recycle_menu.setAdapter(adapterDine);
                             recycle_menu.setNestedScrollingEnabled(true);
+                            adapterDine.notifyDataSetChanged();
                         } else {
                             message("Data masih Kosong !");
                         }

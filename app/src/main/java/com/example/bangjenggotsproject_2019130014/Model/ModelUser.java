@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 public class ModelUser {
 
     @SerializedName("id_user")
-    private String id_user;
+    private int id_user;
 
     @SerializedName("nama")
     private String nama;
@@ -22,11 +22,11 @@ public class ModelUser {
     @SerializedName("status")
     private int status;
 
-    public String getId_user() {
+    public int getId_user() {
         return id_user;
     }
 
-    public void setId_user(String id_user) {
+    public void setId_user(int id_user) {
         this.id_user = id_user;
     }
 

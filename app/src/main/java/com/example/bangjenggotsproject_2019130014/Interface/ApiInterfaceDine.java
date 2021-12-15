@@ -10,6 +10,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Query;
 
 public interface ApiInterfaceDine {
     @Headers({
@@ -21,6 +22,9 @@ public interface ApiInterfaceDine {
 
     @GET("getAllDataDine.php")
     Call<ResultDine> alldatadine();
+
+    @GET("getAllDataDineById.php")
+    Call<ResultDine> alldatadinebyid(@Query("id_user") Integer id);
 
     @PUT("updateDine.php")
     Call<ModelDine> updatedine(@Body ModelDine modelDine);

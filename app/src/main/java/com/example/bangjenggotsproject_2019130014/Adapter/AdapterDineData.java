@@ -1,5 +1,6 @@
 package com.example.bangjenggotsproject_2019130014.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,7 +36,7 @@ public class AdapterDineData extends RecyclerView.Adapter<AdapterDineData.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AdapterDineData.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AdapterDineData.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.id_dine1.setText(String.valueOf(list_dinedata.get(position).getId_dine()));
         holder.nama_reservasi1.setText(list_dinedata.get(position).getNama_reservasi());
         holder.tanggal_dine1.setText(list_dinedata.get(position).getTanggal_dine());
@@ -45,7 +46,8 @@ public class AdapterDineData extends RecyclerView.Adapter<AdapterDineData.ViewHo
         holder.btnok1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                clearSelectedData(position);
+                list_dinedata.remove(position);
+                notifyDataSetChanged();
             }
         });
     }
@@ -72,10 +74,5 @@ public class AdapterDineData extends RecyclerView.Adapter<AdapterDineData.ViewHo
             status1 = itemView.findViewById(R.id.status_dine1);
             btnok1 = itemView.findViewById(R.id.btnok1);
         }
-    }
-
-    private void clearSelectedData(final int i){
-        list_dinedata.remove(i);
-        notifyItemChanged(i);
     }
 }

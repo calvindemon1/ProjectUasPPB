@@ -50,11 +50,11 @@ public class Account extends Fragment {
 
         sharedPreferences = requireActivity().getSharedPreferences(my_shared_preferences, Context.MODE_PRIVATE);
 
-        final String iduser = sharedPreferences.getString("key",null);
+        final int iduser = sharedPreferences.getInt("iduser",0);
 
         initApi();
 
-        Call<ResultDataUser> callback = apiInterfaceUser.getUser(Integer.parseInt(iduser));
+        Call<ResultDataUser> callback = apiInterfaceUser.getUser(iduser);
         callback.enqueue(new Callback<ResultDataUser>() {
             @Override
             public void onResponse(Call<ResultDataUser> call, Response<ResultDataUser> response) {

@@ -54,6 +54,7 @@ public class DeliveryAdmin extends AppCompatActivity {
                             AdapterDelivery adapterDelivery = new AdapterDelivery(getBaseContext(), list_delivery, apiInterfaceDelivery);
                             recycle_menu.setAdapter(adapterDelivery);
                             recycle_menu.setNestedScrollingEnabled(true);
+                            adapterDelivery.notifyDataSetChanged();
                         } else {
                             message("Data masih Kosong !");
                         }

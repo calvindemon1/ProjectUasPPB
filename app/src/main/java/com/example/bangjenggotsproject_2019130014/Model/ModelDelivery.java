@@ -6,7 +6,10 @@ import java.util.List;
 
 public class ModelDelivery {
     @SerializedName("id_delivery")
-    private Integer id_delivery;
+    private int id_delivery;
+
+    @SerializedName("id_user")
+    private int id_user;
 
     @SerializedName("nama_pemesan")
     private String nama_pemesan;
@@ -25,6 +28,14 @@ public class ModelDelivery {
 
     @SerializedName("status")
     private String status;
+
+    public Integer getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(Integer id_user) {
+        this.id_user = id_user;
+    }
 
     public String getNama_pemesan() {
         return nama_pemesan;
@@ -66,11 +77,11 @@ public class ModelDelivery {
         this.waktu_pesan = waktu_pesan;
     }
 
-    public Integer getId_delivery() {
+    public int getId_delivery() {
         return id_delivery;
     }
 
-    public void setId_delivery(Integer id_delivery) {
+    public void setId_delivery(int id_delivery) {
         this.id_delivery = id_delivery;
     }
 

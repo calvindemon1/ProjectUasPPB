@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -34,6 +35,8 @@ public class DineIn extends AppCompatActivity implements View.OnClickListener{
     private Button btnwaktudine;
     private EditText namadine;
     private ApiInterfaceDine apiInterfaceDine;
+    SharedPreferences   sharedPreferences;
+    public static final String my_shared_preferences = "my_session";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,8 @@ public class DineIn extends AppCompatActivity implements View.OnClickListener{
 
         btntanggaldine.setOnClickListener(this);
         btnwaktudine.setOnClickListener(this);
+
+        sharedPreferences = getSharedPreferences(my_shared_preferences, Context.MODE_PRIVATE);
 
             submitdine.setOnClickListener(view -> DineIn());
             initApi();
@@ -110,6 +115,10 @@ public class DineIn extends AppCompatActivity implements View.OnClickListener{
         progressDialog.show();
 
         ModelDine model = new ModelDine();
+
+        int iduser = sharedPreferences.getInt("iduser",0);
+
+        model.setId_user(iduser);
         model.setNama_reservasi(namadine.getText().toString());
         model.setTanggal_dine(txttanggaldine.getText().toString());
         model.setWaktu_dine(txtwaktudine.getText().toString());

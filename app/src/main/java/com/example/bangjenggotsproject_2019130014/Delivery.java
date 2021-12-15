@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -35,6 +36,8 @@ public class Delivery extends AppCompatActivity implements View.OnClickListener 
     private  EditText alamat;
     private  EditText pesanan;
     private ApiInterfaceDelivery apiInterfaceDelivery;
+    SharedPreferences   sharedPreferences;
+    public static final String my_shared_preferences = "my_session";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,8 @@ public class Delivery extends AppCompatActivity implements View.OnClickListener 
         txtwaktudelivery = findViewById(R.id.txtwaktudelivery);
         btntanggaldelivery = findViewById(R.id.btntanggaldelivery);
         btnwaktudelivery = findViewById(R.id.btnwaktudelivery);
+
+        sharedPreferences = getSharedPreferences(my_shared_preferences, Context.MODE_PRIVATE);
 
         btntanggaldelivery.setOnClickListener(this);
         btnwaktudelivery.setOnClickListener(this);
@@ -112,6 +117,10 @@ public class Delivery extends AppCompatActivity implements View.OnClickListener 
         progressDialog.show();
 
         ModelDelivery model = new ModelDelivery();
+
+        int iduser = sharedPreferences.getInt("iduser",0);
+
+        model.setId_user(iduser);
         model.setNama_pemesan(namadelivery.getText().toString());
         model.setAlamat(alamat.getText().toString());
         model.setPesanan(pesanan.getText().toString());
