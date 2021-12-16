@@ -42,6 +42,7 @@ public class AdapterDine extends RecyclerView.Adapter<AdapterDine.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull AdapterDine.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+
         holder.id_dine.setText(String.valueOf(list_dine.get(position).getId_dine()));
         holder.nama_reservasi.setText(list_dine.get(position).getNama_reservasi());
         holder.tanggal_dine.setText(list_dine.get(position).getTanggal_dine());

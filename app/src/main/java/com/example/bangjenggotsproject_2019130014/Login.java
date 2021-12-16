@@ -91,6 +91,7 @@ public class Login extends AppCompatActivity {
 
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putInt("iduser",response.body().getResult().getId_user());
+                        editor.putString("nama", response.body().getResult().getNama());
                         editor.putInt("key", response.body().getResult().getStatus());
                         editor.apply();
 

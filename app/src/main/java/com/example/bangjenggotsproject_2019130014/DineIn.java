@@ -51,10 +51,14 @@ public class DineIn extends AppCompatActivity implements View.OnClickListener{
         btntanggaldine = findViewById(R.id.btntanggaldine);
         btnwaktudine = findViewById(R.id.btnwaktudine);
 
+        sharedPreferences = getSharedPreferences(my_shared_preferences, Context.MODE_PRIVATE);
+
+        String namauser = sharedPreferences.getString("nama",null);
+
+        namadine.setText(namauser);
+
         btntanggaldine.setOnClickListener(this);
         btnwaktudine.setOnClickListener(this);
-
-        sharedPreferences = getSharedPreferences(my_shared_preferences, Context.MODE_PRIVATE);
 
             submitdine.setOnClickListener(view -> DineIn());
             initApi();
@@ -118,8 +122,10 @@ public class DineIn extends AppCompatActivity implements View.OnClickListener{
 
         int iduser = sharedPreferences.getInt("iduser",0);
 
+        String namauser = sharedPreferences.getString("nama",null);
+
         model.setId_user(iduser);
-        model.setNama_reservasi(namadine.getText().toString());
+        model.setNama_reservasi(namauser);
         model.setTanggal_dine(txttanggaldine.getText().toString());
         model.setWaktu_dine(txtwaktudine.getText().toString());
 

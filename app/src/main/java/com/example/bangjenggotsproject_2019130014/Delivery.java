@@ -55,6 +55,10 @@ public class Delivery extends AppCompatActivity implements View.OnClickListener 
 
         sharedPreferences = getSharedPreferences(my_shared_preferences, Context.MODE_PRIVATE);
 
+        String namauser = sharedPreferences.getString("nama",null);
+
+        namadelivery.setText(namauser);
+
         btntanggaldelivery.setOnClickListener(this);
         btnwaktudelivery.setOnClickListener(this);
 
@@ -120,8 +124,10 @@ public class Delivery extends AppCompatActivity implements View.OnClickListener 
 
         int iduser = sharedPreferences.getInt("iduser",0);
 
+        String namauser = sharedPreferences.getString("nama",null);
+
         model.setId_user(iduser);
-        model.setNama_pemesan(namadelivery.getText().toString());
+        model.setNama_pemesan(namauser);
         model.setAlamat(alamat.getText().toString());
         model.setPesanan(pesanan.getText().toString());
         model.setTanggal_pesan(txttanggaldelivery.getText().toString());
